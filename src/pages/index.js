@@ -1,12 +1,29 @@
-import BlogCard from "component/BlogCard";
+import React, { useState, useEffect } from "react";
+import jss from "../../public/JS.png";
+import BlogsHomeCard from "component/BlogsHomeCard";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [blogData, setBlogData] = useState([])
+  useEffect(() => {
+    fetch("http://localhost:3000/api/blogs")
+      .then((res) => {
+        return res.json()
+      }).then((parsed) => {
+        setBlogData(parsed);
+      })
+      .catch((err) => {
+        console.log(err, "err");
+      });
+  }, []);
+
   return (
     <>
       <div className={` ${styles.main} bg-indigo-600 w-full`}>
         <h3 className="text-6xl font-semibold text-white">Hunitng Blog</h3>
-        <p className="text-2xl text-white pt-5">A blog for hunt the code for coder</p>
+        <p className="text-2xl text-white pt-5">
+          A blog for hunt the code for coder
+        </p>
         <div className="inline-flex items-center justify-center w-full mt-7">
           <hr className="w-3/4 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700" />
           <div className="absolute p-3 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900 rounded-md">
@@ -27,8 +44,9 @@ export default function Home() {
         <h3 className="items-center md:flex justify-center text-2xl font-bold text-white p-8">
           Popular Blogs
         </h3>
-        <div class="grid grid-cols-2 gap-5 p-5">
-          <BlogCard />
+        <div className="grid grid-cols-2 gap-5 p-5">
+          <BlogsHomeCard blogData={blogData}/>
+          {/* <BlogCard blogData={blogData}/> */}
         </div>
       </div>
     </>

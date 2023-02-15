@@ -1,0 +1,13 @@
+{
+  "id": "abcgsf431233544",
+  "title":"How to learn NodeJS ?",
+  "content":"JavaScript is the world's most popular programming language JavaScript is the programming language of the Web javascript is easy to learn.",
+  "invented": "Brendan Eich in 1995",
+  "image":"/nodejs.png",
+  "ponit1":"Node.js is an open source server environment.",
+  "ponit2":"Node.js allows you to run JavaScript on the server.",
+  "titleEnd":"Perfect for learning how the nodejs works, prototyping a new idea, or creating a demo to share online.",
+  "language":"NodeJS",
+  "languageLink":"https://nodejs.org/en/",
+  "slug":"how-to-learn-nodejs"
+}
